@@ -28,25 +28,46 @@ const readline = require('readline-sync');
 
 const hasTorch = true;
 const hasMap = false;
+const hasGoggles = true;
 
 console.log("You see two paths: one leads to the mountains, the other to the village.");
 const choice = readline.question("Do you go to the 'mountains' or the 'village'?");
 
 if (choice === "mountains" && hasTorch) {
-  console.log("You safely navigate through the dark mountains.");
+  console.log("You safely navigate through the dark mountains.");{ 
+    if (choice === "mountains" && hasTorch) {
+  console.log("You encounter a troll guarding a bridge after the mountains.");
+}
+  const trollChoice = readline.question("Do you cross the 'bridge' or 'swim' across the river?");
+{
+  if (trollChoice === "bridge") {
+  console.log("You answered the troll's riddle correctly and crossed the bridge.");
+}   else if (trollChoice === "swim") {
+      const swimChoice = readline.question("Wait... did you bring your goggles? Answer 'true' or 'false': ");
+  
+  if (swimChoice === 'true' && hasGoggles) {
+    console.log("You have your goggles! You can swim safely.");
+  } else {
+    console.log("You forgot your goggles at home! You can't possibly swim without your goggles!");
+   }
+}
+}
+}
 } else if (choice === "mountains" && !hasTorch) {
   console.log("It's too dark to proceed. You decide to turn back.");
 } else if (choice === "village" || hasMap) {
-  console.log("You find your way to the village.");
-} else {
+  console.log("You find your way to the village.");{
+    if (choice === "village" || hasMap) {
+  console.log("You find a hotel room with a warm fire.");
+}
+const hotelChoice = readline.question("Do you 'sleep' or 'grab a pint' at the pub?");
+
+  if (hotelChoice === "sleep") {
+    console.log("You have a comfortable night's sleep.");
+  } else if (hotelChoice === "grab a pint") {
+    console.log("mmmm... Guinness\u{1F37A}");
+  }
+}
+}  else {
   console.log("You get lost and wander aimlessly.");
 }
-
-/* 
-
-Add Customization and expand the game:
-  - Add more choices and scenarios.
-  - Include additional items (e.g., a sword, a compass).
-  - Use nested conditionals and logical operators to create complex outcomes.
-
-*/
